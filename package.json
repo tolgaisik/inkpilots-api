@@ -1,23 +1,21 @@
 {
 	"name": "@inkpilots/sdk",
-	"version": "0.1.1",
+	"version": "0.1.0",
 	"description": "Official InkPilots API SDK",
 	"license": "MIT",
-	"type": "module",
 	"sideEffects": false,
-	"exports": {
-		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs"
-		}
-	},
-	"main": "./dist/index.cjs",
-	"module": "./dist/index.mjs",
-	"types": "./dist/index.d.ts",
-	"files": [
-		"dist"
-	],
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": ["dist"],
 	"scripts": {
 		"build": "tsup src/index.ts --format esm,cjs --dts --clean",
 		"prepublishOnly": "npm run build"
