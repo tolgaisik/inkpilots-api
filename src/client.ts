@@ -16,6 +16,9 @@ export type GetAgentArticlesOptions = {
 	limit?: number; // default 50
 	skip?: number; // default 0
 	status?: "draft" | "published" | "archived"; // default "published"
+  slug?: string; // optional article slug to filter by
+  sortBy?: "createdAt" | "updatedAt"; // optional sort by field
+  sortOrder?: "asc" | "desc"; // optional sort order
 };
 
 type RequestOptions = {
@@ -55,7 +58,7 @@ export class InkPilotsClient {
 		return this.request<AgentArticlesResponse>({
 			method: "GET",
 			path: `/agents/${encodeURIComponent(agentId)}/articles`,
-			query: { limit, skip, status },
+			query: { limit, skip, status, slug: options.slug, sortBy: options.sortBy, sortOrder: options.sortOrder },
 		});
 	}
 
